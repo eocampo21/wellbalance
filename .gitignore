@@ -1,0 +1,21 @@
+# Dependencies — regenerate with npm ci
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Sass / build cache
+.sass-cache/
+*.css.map
+
+# Logs and debug
+*.log
+npm-debug.log*
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.idea/
+*.swp

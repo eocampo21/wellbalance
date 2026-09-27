@@ -4,6 +4,7 @@
 .hero {
   position: relative;
   display: flex;
+  min-height: 100vh;
   min-height: 100svh;
   align-items: center;
   overflow: hidden;
@@ -485,7 +486,6 @@
 
 @include down(sm) {
   .container { width: min(100% - 2rem, $container); }
-  .hero { min-height: 52.5rem; }
   .hero__title { font-size: clamp(3.6rem, 17vw, 5rem); }
   .hero__actions .btn { width: 100%; }
   .work,
