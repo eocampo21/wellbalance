@@ -1,0 +1,70 @@
+@use '../abstracts' as *;
+
+.cursor {
+  display: none;
+
+  @media (hover: hover) and (pointer: fine) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1500;
+    pointer-events: none;
+  }
+
+  &__dot,
+  &__ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  &__dot {
+    width: .375rem;
+    height: .375rem;
+    margin: -.1875rem 0 0 -.1875rem;
+    background: $ivory;
+    mix-blend-mode: difference;
+  }
+
+  &__ring {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: -1.25rem 0 0 -1.25rem;
+    border: 1px solid rgba($ivory, .35);
+    transition: width .45s $ease-out, height .45s $ease-out, margin .45s $ease-out,
+                background .45s, border-color .45s;
+  }
+
+  &__label {
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: $ink;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+
+  // States
+  &.is-hover &__ring {
+    width: 4rem;
+    height: 4rem;
+    margin: -2rem 0 0 -2rem;
+    border-color: transparent;
+    background: rgba($mint, .15);
+  }
+
+  &.is-label &__ring {
+    width: 5.75rem;
+    height: 5.75rem;
+    margin: -2.875rem 0 0 -2.875rem;
+    border-color: transparent;
+    background: $gradient;
+  }
+  &.is-label &__label { opacity: 1; }
+  &.is-label &__dot { opacity: 0; }
+}

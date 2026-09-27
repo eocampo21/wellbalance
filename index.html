@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WellBalance — Software in perfect balance</title>
+  <meta name="description" content="WellBalance is a software consultancy that designs, builds and scales digital products in perfect balance between people, technology and business." />
+  <meta name="theme-color" content="#0B0F1A" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='15' cy='20' r='11' fill='%232fffe0' fill-opacity='.72' stroke='%2315bda7' stroke-opacity='.48' stroke-width='1.2'/><circle cx='25' cy='20' r='11' fill='%23ff6847' fill-opacity='.72' stroke='%23c94a31' stroke-opacity='.48' stroke-width='1.2'/></svg>" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__orbs">
+      <span class="preloader__orb preloader__orb--mint"></span>
+      <span class="preloader__orb preloader__orb--coral"></span>
+    </div>
+    <div class="preloader__count"><span data-preloader-count>0</span>%</div>
+    <p class="preloader__label">Balance</p>
+  </div>
+
+  <!-- ============ CURSOR + PROGRESS ============ -->
+  <div class="cursor" aria-hidden="true">
+    <span class="cursor__dot"></span>
+    <span class="cursor__ring"><span class="cursor__label"></span></span>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" data-nav>
+    <div class="nav__inner">
+      <a href="#home" class="logo" aria-label="WellBalance home">
+        <span class="logo__mark"><span></span><span></span></span>
+        <span class="logo__text">WellBalance</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Main">
+        <span class="nav__indicator" aria-hidden="true"></span>
+        <a href="#work" class="nav__link">Work</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#contact" class="nav__link">Contact</a>
+        <a href="#location" class="nav__link">Location</a>
+        <a href="#who" class="nav__link">Who</a>
+      </nav>
+
+      <a href="#contact" class="btn btn--small btn--gradient nav__cta" data-magnetic>
+        <span>Let’s talk</span>
+      </a>
+
+      <button class="burger" aria-label="Open menu" aria-expanded="false" data-burger>
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" data-mobile-menu aria-hidden="true">
+    <div class="mobile-menu__panel">
+      <nav aria-label="Mobile">
+        <a href="#work" style="--i:0">Work</a>
+        <a href="#about" style="--i:1">About</a>
+        <a href="#contact" style="--i:2">Contact</a>
+        <a href="#location" style="--i:3">Location</a>
+        <a href="#who" style="--i:4">Who</a>
+      </nav>
+      <div class="mobile-menu__foot">
+        <a href="#contact" class="btn btn--gradient btn--block" data-magnetic>
+          <span>Let’s talk</span>
+        </a>
+        <a href="mailto:hello@wellbalance.io">hello@wellbalance.io</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" data-section>
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__orbit">
+          <span class="orb orb--mint"></span>
+          <span class="orb orb--coral"></span>
+        </div>
+        <svg class="hero__rings" viewBox="0 0 600 400">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#5EEAD4" />
+              <stop offset="1" stop-color="#FF8A65" />
+            </linearGradient>
+          </defs>
+          <circle cx="235" cy="200" r="150" />
+          <circle cx="365" cy="200" r="150" />
+        </svg>
+      </div>
+
+      <div class="container hero__content">
+        <h1 class="hero__title" data-hero-fade style="--d:0">
+          <span class="line" data-split>Software in</span>
+          <span class="line line--gradient" data-split>perfect balance.</span>
+        </h1>
+
+        <div class="hero__actions" data-hero-fade style="--d:1">
+          <a href="#contact" class="btn btn--gradient hero__cta" data-magnetic>
+            <span>Let’s talk</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+          <!-- <a href="#work" class="btn btn--ghost" data-magnetic>
+            <span>Work</span>
+          </a> -->
+        </div>
+      </div>
+
+      <div class="hero__bottom" data-hero-fade style="--d:3">
+        <a href="#work" class="scroll-cue" aria-label="Scroll down">
+          <span class="scroll-cue__mouse"><span></span></span>
+        </a>
+
+        <div class="marquee marquee--tech" aria-label="Technologies">
+          <div class="marquee__track">
+            <span>React</span><i></i><span>Node.js</span><i></i><span>TypeScript</span><i></i>
+            <span>AWS</span><i></i><span>Kubernetes</span><i></i><span>Python</span><i></i>
+            <span>Flutter</span><i></i><span>OpenAI</span><i></i><span>PostgreSQL</span><i></i>
+            <span>Go</span><i></i><span>Terraform</span><i></i><span>Next.js</span><i></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section work" id="work" data-section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" data-reveal>
+              Work.
+            </h2>
+          </div>
+          <div class="filters" role="tablist" data-reveal style="--d:2">
+            <button class="filter is-active" data-filter="all">All</button>
+            <button class="filter" data-filter="web">Web</button>
+            <button class="filter" data-filter="mobile">Mobile</button>
+            <button class="filter" data-filter="ai">AI</button>
+            <button class="filter" data-filter="cloud">Cloud</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel" data-carousel data-reveal style="--d:2">
+        <div class="carousel__track" data-carousel-track>
+
+          <article class="work-card work-card--xl" data-category="web" data-tilt>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop" alt="Analytics dashboard for Lumen Health" draggable="false" loading="lazy" />
+            </div>
+            <span class="work-card__glare"></span>
+            <div class="work-card__top">
+              <span class="work-card__index">01</span>
+              <span class="tag">HealthTech</span>
+            </div>
+            <div class="work-card__body">
+              <p class="work-card__client">Lumen</p>
+              <h3 class="work-card__title">Patient intelligence</h3>
+            </div>
+            <span class="work-card__arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+          </article>
+
+          <article class="work-card work-card--sm" data-category="cloud" data-tilt>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80&auto=format&fit=crop" alt="Data center servers for Northwind Logistics" draggable="false" loading="lazy" />
+            </div>
+            <span class="work-card__glare"></span>
+            <div class="work-card__top">
+              <span class="work-card__index">02</span>
+              <span class="tag">Logistics</span>
+            </div>
+            <div class="work-card__body">
+              <p class="work-card__client">Northwind</p>
+              <h3 class="work-card__title">Fleet engine</h3>
+            </div>
+            <span class="work-card__arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+          </article>
+
+          <article class="work-card work-card--tall" data-category="mobile" data-tilt>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80&auto=format&fit=crop" alt="Mobile banking app for Kora Finance" draggable="false" loading="lazy" />
+            </div>
+            <span class="work-card__glare"></span>
+            <div class="work-card__top">
+              <span class="work-card__index">03</span>
+              <span class="tag">FinTech</span>
+            </div>
+            <div class="work-card__body">
+              <p class="work-card__client">Kora</p>
+              <h3 class="work-card__title">Digital bank</h3>
+            </div>
+            <span class="work-card__arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+          </article>
+
+          <article class="work-card work-card--wide" data-category="ai" data-tilt>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&q=80&auto=format&fit=crop" alt="Code on screen for Vertex Labs ML pipeline" draggable="false" loading="lazy" />
+            </div>
+            <span class="work-card__glare"></span>
+            <div class="work-card__top">
+              <span class="work-card__index">04</span>
+              <span class="tag">AI</span>
+            </div>
+            <div class="work-card__body">
+              <p class="work-card__client">Vertex</p>
+              <h3 class="work-card__title">Knowledge hub</h3>
+            </div>
+            <span class="work-card__arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+          </article>
+
+          <article class="work-card work-card--lg" data-category="web" data-tilt>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&auto=format&fit=crop" alt="E-commerce analytics for Atlas Retail" draggable="false" loading="lazy" />
+            </div>
+            <span class="work-card__glare"></span>
+            <div class="work-card__top">
+              <span class="work-card__index">05</span>
+              <span class="tag">Retail</span>
+            </div>
+            <div class="work-card__body">
+              <p class="work-card__client">Atlas</p>
+              <h3 class="work-card__title">Commerce engine</h3>
+            </div>
+            <span class="work-card__arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+          </article>
+
+          <article class="work-card work-card--tall" data-category="ai" data-tilt>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format&fit=crop" alt="Technology workspace for Orbit HR" draggable="false" loading="lazy" />
+            </div>
+            <span class="work-card__glare"></span>
+            <div class="work-card__top">
+              <span class="work-card__index">06</span>
+              <span class="tag">SaaS</span>
+            </div>
+            <div class="work-card__body">
+              <p class="work-card__client">Orbit</p>
+              <h3 class="work-card__title">People analytics</h3>
+            </div>
+            <span class="work-card__arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+          </article>
+
+          <article class="work-card work-card--sm" data-category="mobile" data-tilt>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&q=80&auto=format&fit=crop" alt="Laptop with code for Pulse Fitness app" draggable="false" loading="lazy" />
+            </div>
+            <span class="work-card__glare"></span>
+            <div class="work-card__top">
+              <span class="work-card__index">07</span>
+              <span class="tag">Wellness</span>
+            </div>
+            <div class="work-card__body">
+              <p class="work-card__client">Pulse</p>
+              <h3 class="work-card__title">Fitness companion</h3>
+            </div>
+            <span class="work-card__arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" /></svg></span>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="container carousel-controls">
+        <div class="carousel-progress"><span data-carousel-progress></span></div>
+        <div class="carousel-buttons">
+          <button class="round-btn" data-carousel-prev aria-label="Previous project" data-magnetic>
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+          </button>
+          <button class="round-btn" data-carousel-next aria-label="Next project" data-magnetic>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about" data-section>
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" data-reveal>Balance.</h2>
+        </div>
+
+        <div class="stats">
+          <div class="stat" data-reveal style="--d:0">
+            <span class="stat__num"><span data-count="120">0</span>+</span>
+            <span class="stat__label">Shipped</span>
+          </div>
+          <div class="stat" data-reveal style="--d:1">
+            <span class="stat__num"><span data-count="48">0</span></span>
+            <span class="stat__label">Clients</span>
+          </div>
+          <div class="stat" data-reveal style="--d:2">
+            <span class="stat__num"><span data-count="12">0</span></span>
+            <span class="stat__label">Countries</span>
+          </div>
+          <div class="stat" data-reveal style="--d:3">
+            <span class="stat__num"><span data-count="98">0</span>%</span>
+            <span class="stat__label">Retention</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact" data-section>
+      <div class="container contact__grid">
+        <div class="contact__intro">
+          <h2 class="contact__title" data-reveal>
+            Let's talk.
+          </h2>
+          <a href="mailto:hello@wellbalance.io" class="contact__mail" data-reveal style="--d:1">hello@wellbalance.io</a>
+
+          <div class="socials" data-reveal style="--d:4">
+            <a href="#" class="round-btn" aria-label="LinkedIn" data-magnetic>in</a>
+            <a href="#" class="round-btn" aria-label="GitHub" data-magnetic>gh</a>
+            <a href="#" class="round-btn" aria-label="X" data-magnetic>x</a>
+            <a href="#" class="round-btn" aria-label="Dribbble" data-magnetic>dr</a>
+          </div>
+        </div>
+
+        <form class="form" data-form novalidate data-reveal style="--d:2">
+          <fieldset class="form__group">
+            <legend>Interest</legend>
+            <div class="interest">
+              <label class="interest__option">
+                <input type="checkbox" name="service" value="web" />
+                <span class="interest__card">Web App</span>
+              </label>
+              <label class="interest__option">
+                <input type="checkbox" name="service" value="mobile" />
+                <span class="interest__card">Mobile</span>
+              </label>
+              <label class="interest__option">
+                <input type="checkbox" name="service" value="ai" />
+                <span class="interest__card">AI &amp; Data</span>
+              </label>
+              <label class="interest__option">
+                <input type="checkbox" name="service" value="cloud" />
+                <span class="interest__card">Cloud</span>
+              </label>
+              <label class="interest__option">
+                <input type="checkbox" name="service" value="consulting" />
+                <span class="interest__card">Consulting</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form__row">
+            <div class="field">
+              <input type="text" id="name" name="name" placeholder=" " required />
+              <label for="name">Name</label>
+              <span class="field__line"></span>
+            </div>
+            <div class="field">
+              <input type="email" id="email" name="email" placeholder=" " required />
+              <label for="email">Email</label>
+              <span class="field__line"></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <input type="text" id="company" name="company" placeholder=" " />
+            <label for="company">Company</label>
+            <span class="field__line"></span>
+          </div>
+
+          <div class="field">
+            <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+            <label for="message">Project</label>
+            <span class="field__line"></span>
+          </div>
+
+          <button type="submit" class="btn btn--gradient btn--block" data-magnetic>
+            <span>Send</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </button>
+
+          <div class="form__success" aria-live="polite">
+            <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" /><path d="M15 27l7 7 15-15" /></svg>
+            <h3>Sent.</h3>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ LOCATION ============ -->
+    <section class="section location" id="location" data-section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" data-reveal>
+              Miami.
+            </h2>
+          </div>
+        </div>
+
+        <div class="location__grid">
+          <div class="map" data-reveal style="--d:1">
+            <iframe
+              title="WellBalance office location"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-80.2010%2C25.7560%2C-80.1830%2C25.7680&amp;layer=mapnik"
+              loading="lazy"></iframe>
+            <span class="map__pin" aria-hidden="true"><span></span></span>
+          </div>
+
+          <aside class="location__card" data-reveal style="--d:2">
+            <h3>Miami</h3>
+            <address>1450 Brickell Ave<br />FL 33131</address>
+
+            <ul class="location__list">
+              <li><span>Time</span><strong data-clock>--:--</strong></li>
+              <li><span>Hours</span><strong>9am – 6pm</strong></li>
+            </ul>
+
+            <a href="https://maps.google.com/?q=1450+Brickell+Ave+Miami+FL" target="_blank" rel="noopener" class="btn btn--ghost btn--block" data-magnetic>
+              <span>Map</span>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17L17 7M9 7h8v8" /></svg>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHO ============ -->
+    <section class="section who" id="who" data-section>
+      <div class="container">
+        <h2 class="section-title" data-reveal>Who we are.</h2>
+        <p class="who__story" data-reveal style="--d:1">
+          <span>They asked us to pick a side.</span>
+          <span>We stayed in the tension.</span>
+          <span class="who__story-end">That tension is WellBalance.</span>
+        </p>
+      </div>
+
+      <ul class="container who__people">
+        <li class="who-card who-card--lg" data-reveal data-tilt style="--d:0">
+          <div class="who-card__media">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format&fit=crop" alt="Elena Voss" />
+          </div>
+          <h3>Elena Voss</h3>
+          <p>Product</p>
+        </li>
+        <li class="who-card who-card--tall" data-reveal data-tilt style="--d:1">
+          <div class="who-card__media">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80&auto=format&fit=crop" alt="Mateo Ruiz" />
+          </div>
+          <h3>Mateo Ruiz</h3>
+          <p>Engineering</p>
+        </li>
+        <li class="who-card who-card--sm" data-reveal data-tilt style="--d:2">
+          <div class="who-card__media">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&q=80&auto=format&fit=crop" alt="Amara Cole" />
+          </div>
+          <h3>Amara Cole</h3>
+          <p>Design</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <a href="#home" class="round-btn round-btn--lg" aria-label="Back to top" data-magnetic>
+          <svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+        </a>
+      </div>
+      <p class="footer__word" aria-hidden="true">
+        WellBalance
+        <span class="logo__mark"><span></span><span></span></span>
+      </p>
+      <div class="footer__bottom">
+        <span>© <span data-year></span> WellBalance Inc.</span>
+        <nav>
+          <a href="#work">Work</a><a href="#about">About</a><a href="#who">Who</a><a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/core/app.js"></script>
+  <script src="js/components/preloader.js"></script>
+  <script src="js/components/marquee.js"></script>
+  <script src="js/components/navigation.js"></script>
+  <script src="js/components/scroll-atmosphere.js"></script>
+  <script src="js/components/reveal.js"></script>
+  <script src="js/components/project-carousel.js"></script>
+  <script src="js/components/card-effects.js"></script>
+  <script src="js/components/pointer-effects.js"></script>
+  <script src="js/components/contact-form.js"></script>
+  <script src="js/components/site-meta.js"></script>
+  <script src="js/components/visitor-context.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

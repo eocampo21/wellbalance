@@ -1,0 +1,48 @@
+@use '../abstracts' as *;
+
+.container {
+  width: min(100% - 3rem, $container);
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(6rem, 12vw, 10rem);
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+// Scroll reveal
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0) scale(.985);
+  transition:
+    opacity .9s $ease-out,
+    transform 1s $ease-out;
+  transition-delay: calc(var(--d, 0) * 90ms);
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Top scroll progress bar
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: 100%;
+  height: .125rem;
+  background: $gradient;
+  transform-origin: left;
+  transform: scaleX(var(--progress, 0));
+}

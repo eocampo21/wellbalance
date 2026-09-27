@@ -1,0 +1,184 @@
+@use '../abstracts' as *;
+
+.form {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid rgba($ink, .1);
+  border-radius: $radius;
+  background: #fff;
+  box-shadow: 0 25px 80px rgba($ink, .08);
+
+  &__group {
+    margin-bottom: 2rem;
+
+    legend {
+      margin-bottom: .35rem;
+      font-family: $font-display;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  &__hint {
+    margin-bottom: 1rem;
+    color: rgba($ink, .5);
+    font-size: .875rem;
+  }
+
+  &__row { display: grid; gap: 1.3rem; @include up(sm) { grid-template-columns: 1fr 1fr; } }
+
+  &__success {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    border-radius: inherit;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+    svg { width: 4rem; color: #1a9b77; }
+    h3 { margin-top: 1rem; font-size: 2rem; }
+    p { color: rgba($ink, .6); }
+  }
+
+  &.is-success .form__success { opacity: 1; visibility: visible; }
+}
+
+.interest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .65rem;
+
+  @include up(sm) { grid-template-columns: repeat(3, 1fr); }
+
+  &__option {
+    cursor: pointer;
+
+    &:last-child { grid-column: 1 / -1; }
+    @include up(sm) { &:last-child { grid-column: auto; } }
+
+    input { position: absolute; opacity: 0; pointer-events: none; }
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    min-height: 3.5rem;
+    padding: .9rem 1rem;
+    border: 1px solid rgba($ink, .12);
+    border-radius: $radius-sm;
+    background: rgba($ink, .03);
+    color: rgba($ink, .72);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: background .3s $ease-out, border-color .3s, color .3s, transform .3s $ease-out;
+
+    @include down(md) {
+      min-height: 3.75rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    &::after {
+      content: '';
+      flex: none;
+      width: 1.125rem;
+      height: 1.125rem;
+      border: 1px solid rgba($ink, .22);
+      border-radius: 50%;
+      transition: background .3s, border-color .3s, box-shadow .3s;
+    }
+  }
+
+  input:checked + &__card {
+    color: $ivory;
+    background: $ink;
+    border-color: $ink;
+
+    &::after {
+      border-color: $mint;
+      background: $mint;
+      box-shadow: inset 0 0 0 .2rem $ink;
+    }
+  }
+
+  input:focus-visible + &__card {
+    outline: 2px solid $mint;
+    outline-offset: 2px;
+  }
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .65rem;
+
+  @include up(sm) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.chip {
+  cursor: pointer;
+
+  input { position: absolute; opacity: 0; pointer-events: none; }
+
+  span {
+    display: block;
+    padding: .85rem 1rem;
+    border: 1px solid rgba($ink, .15);
+    border-radius: 999px;
+    color: rgba($ink, .65);
+    font-size: .9375rem;
+    font-weight: 500;
+    text-align: center;
+    transition: .3s;
+  }
+
+  input:checked + span { color: $ivory; background: $ink; border-color: $ink; }
+  input:focus-visible + span { outline: 2px solid $mint; outline-offset: 2px; }
+}
+
+.field {
+  position: relative;
+  margin-bottom: 2rem;
+
+  input, textarea {
+    width: 100%;
+    padding: 1.4rem 0 .65rem;
+    border-bottom: 1px solid rgba($ink, .2);
+    resize: vertical;
+    font-size: 1rem;
+    &:focus ~ .field__line { transform: scaleX(1); }
+    &:focus + label, &:not(:placeholder-shown) + label { top: .1rem; color: rgba($ink, .55); font-size: .75rem; }
+    &.is-invalid { border-color: #c83d3d; }
+  }
+
+  label {
+    position: absolute;
+    top: 1.2rem;
+    left: 0;
+    color: rgba($ink, .6);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: .25s;
+  }
+
+  &__line {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: .125rem;
+    background: $gradient;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: .4s $ease-out;
+  }
+}

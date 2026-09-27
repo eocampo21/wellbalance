@@ -1,0 +1,38 @@
+@use '../abstracts' as *;
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin: 0 0 clamp(4rem, 9vw, 8rem);
+  overflow: hidden;
+  border: 1px solid $line;
+  border-radius: $radius;
+  background: $line;
+
+  @include up(md) { grid-template-columns: repeat(4, 1fr); }
+  @include down(sm) { grid-template-columns: 1fr; }
+}
+
+.stat {
+  display: flex;
+  min-height: 10rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  background: $ink;
+  text-align: center;
+
+  &__num {
+    font-family: $font-display;
+    font-size: clamp(2.6rem, 5vw, 4.5rem);
+    line-height: 1;
+  }
+
+  &__label {
+    margin-top: .65rem;
+    color: $slate;
+    font-size: .85rem;
+  }
+}

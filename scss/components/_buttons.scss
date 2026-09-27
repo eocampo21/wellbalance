@@ -1,0 +1,132 @@
+@use '../abstracts' as *;
+
+svg path, svg circle { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  padding: 1.05rem 1.9rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: -.015em;
+  -webkit-text-stroke: .018em currentColor;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+
+  > * { position: relative; z-index: 1; }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s $ease-out;
+  }
+
+  &:hover::after { opacity: .22; }
+
+  &--gradient {
+    background: $gradient;
+    background-size: 200% 100%;
+    color: $ink;
+    animation: gradient-shift 6s ease infinite;
+    box-shadow: 0 10px 40px -10px rgba($mint, .45), 0 10px 40px -12px rgba($coral, .45);
+  }
+
+  &--ghost {
+    border: 1px solid $line-2;
+    color: $ivory;
+  }
+
+  &--small { padding: .7rem 1.3rem; font-size: 1rem; }
+  &--block { width: 100%; }
+
+  @include down(md) {
+    font-size: 1.25rem;
+    padding: 1.2rem 1.9rem;
+
+    &--small { font-size: 1.125rem; padding: .9rem 1.2rem; }
+  }
+
+  &.nav__cta {
+    display: none;
+
+    @include up(lg) { display: inline-flex; }
+  }
+}
+
+.round-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  border: 1px solid $line-2;
+  font-size: .85rem;
+  font-weight: 500;
+  transition: background .4s $ease-out, color .4s, border-color .4s, transform .5s $ease-out;
+
+  svg { width: 1.25rem; height: 1.25rem; }
+
+  @include hover { background: $ivory; color: $ink; border-color: $ivory; }
+
+  &:disabled { opacity: .3; pointer-events: none; }
+
+  &--lg { width: 4.5rem; height: 4.5rem; }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: .38rem .85rem;
+  border-radius: 999px;
+  font-size: .74rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  @include glass(.08);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .5rem 1rem .5rem .8rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  color: rgba($ivory, .85);
+  @include glass(.05);
+
+  &__dot {
+    position: relative;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background: $mint;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: $mint;
+      animation: ping 2s $ease-out infinite;
+    }
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes ping {
+  0% { transform: scale(1); opacity: .8; }
+  100% { transform: scale(3.2); opacity: 0; }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "wellbalance",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "sass scss/main.scss css/main.css --style=compressed --no-source-map",
+    "dev": "sass --watch scss/main.scss css/main.css",
+    "serve": "python3 -m http.server 8000 --bind 127.0.0.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.105.0"
+  }
+}

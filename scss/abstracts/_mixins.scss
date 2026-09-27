@@ -1,0 +1,61 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+@mixin up($bp) {
+  @media (min-width: map.get($breakpoints, $bp)) { @content; }
+}
+
+@mixin down($bp) {
+  @media (max-width: map.get($breakpoints, $bp) - 1px) { @content; }
+}
+
+@mixin glass($alpha: .04) {
+  background: rgba($ivory, $alpha);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid $line;
+}
+
+@mixin gradient-text {
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin brand-word {
+  font-family: $font-display;
+  font-weight: 600;
+  line-height: .8;
+  letter-spacing: -.045em;
+  @include gradient-text;
+}
+
+// Gradient border using mask (works with border-radius)
+@mixin gradient-border($width: 1px, $bg: $gradient) {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: $width;
+    border-radius: inherit;
+    background: $bg;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) { &:hover { @content; } }
+}
+
+@mixin orb-surface($fill, $border, $glow: 18px) {
+  border: 1px solid rgba($border, .48);
+  background: rgba($fill, .52);
+  color: $fill;
+  box-shadow: 0 0 $glow currentColor;
+  mix-blend-mode: screen;
+  backdrop-filter: blur(8px);
+}

@@ -1,0 +1,262 @@
+@use '../abstracts' as *;
+
+.nav {
+  position: fixed;
+  top: 1.2rem;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding-inline: 1rem;
+  transition: transform .6s $ease-out;
+
+  &.is-hidden { transform: translateY(-140%); }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .7rem;
+    width: min(100%, $container);
+    padding: .55rem .55rem .55rem 1rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: width .7s $ease-out, background .5s, border-color .5s, padding .5s;
+
+    @include up(md) {
+      gap: 2rem;
+      padding: .7rem .7rem .7rem 1.4rem;
+    }
+  }
+
+  &.is-scrolled &__inner {
+    width: min(100%, 58.75rem);
+    @include glass(.05);
+    background: rgba($ink, .6);
+  }
+
+  &__links {
+    position: relative;
+    display: none;
+    gap: .3rem;
+    padding: .3rem;
+    border-radius: 999px;
+
+    @include up(md) { display: flex; }
+  }
+
+  &__link {
+    position: relative;
+    z-index: 1;
+    padding: .55rem 1.05rem;
+    border-radius: 999px;
+    font-size: .9rem;
+    color: $slate;
+    transition: color .3s;
+
+    &:hover, &.is-active { color: $ivory; }
+  }
+
+  // Sliding pill that follows the active link
+  &__indicator {
+    position: absolute;
+    top: .3rem;
+    bottom: .3rem;
+    left: 0;
+    width: 0;
+    border-radius: 999px;
+    background: rgba($ivory, .08);
+    border: 1px solid $line;
+    transition: transform .6s $ease-out, width .6s $ease-out;
+  }
+
+  .btn#{&}__cta,
+  &__cta {
+    display: none;
+    flex: none;
+    white-space: nowrap;
+    padding-inline: 1.3rem;
+
+    @include up(lg) { display: inline-flex; }
+  }
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  flex: none;
+  white-space: nowrap;
+
+  &__text {
+    @include brand-word;
+    font-size: 1.2rem;
+    letter-spacing: -.02rem;
+
+    @media (max-width: 23.6875rem) { display: none; }
+  }
+
+  &__mark {
+    --orb-size: 1.375rem;
+    --orb-room: 1.375rem;
+    --orb-dir: 1;
+    position: relative;
+    width: calc(var(--orb-room) * 2 + var(--orb-size) + .75rem);
+    height: var(--orb-size);
+    overflow: visible;
+
+    span {
+      position: absolute;
+      top: 0;
+      width: var(--orb-size);
+      height: var(--orb-size);
+      border-radius: 50%;
+      animation-duration: 4.6s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+
+      &:first-child {
+        left: var(--orb-room);
+        animation-name: logo-orb-mint;
+        @include orb-surface($orb-mint, $orb-mint-border, 10px);
+      }
+
+      &:last-child {
+        right: var(--orb-room);
+        animation-name: logo-orb-coral;
+        @include orb-surface($orb-coral, $orb-coral-border, 10px);
+      }
+    }
+  }
+
+  &:hover &__mark span,
+  &:focus-visible &__mark span { animation-play-state: paused; }
+}
+
+.footer__word .logo__mark span { animation-play-state: paused; }
+.footer__word.is-live .logo__mark span { animation-play-state: running; }
+
+@keyframes logo-orb-mint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(100%); }
+}
+
+@keyframes logo-orb-coral {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-100%); }
+}
+
+.burger {
+  position: relative;
+  z-index: 1100;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  @include glass(.06);
+
+  @include down(md) {
+    position: absolute;
+    right: .55rem;
+  }
+
+  @include up(md) { display: none; }
+
+  span {
+    position: absolute;
+    left: .875rem;
+    width: 1.25rem;
+    height: .125rem;
+    background: $ivory;
+    transition: transform .5s $ease-out, top .5s $ease-out;
+
+    &:first-child { top: 1.25rem; }
+    &:last-child { top: 1.6875rem; }
+  }
+
+  &[aria-expanded='true'] span {
+    &:first-child { top: 1.4375rem; transform: rotate(45deg); }
+    &:last-child { top: 1.4375rem; transform: rotate(-45deg); }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6.4rem 1rem 1.5rem;
+  background: rgba($ink, .42);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .4s $ease-out, visibility .4s;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &__panel {
+    width: min(100%, 420px);
+    padding: 1.1rem 1.1rem 1.3rem;
+    border: 1px solid $line-2;
+    border-radius: $radius;
+    background: rgba($ink, .92);
+    box-shadow: 0 24px 80px rgba($ink, .45);
+    transform: translateY(-12px);
+    transition: transform .45s $ease-out;
+  }
+
+  &.is-open &__panel { transform: none; }
+
+  nav { display: flex; flex-direction: column; }
+
+  nav a {
+    padding: .9rem .35rem;
+    border-bottom: 1px solid $line;
+    font-family: $font-display;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.15;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity .45s $ease-out, transform .5s $ease-out, color .3s;
+
+    &:last-child { border-bottom: 0; }
+    &:hover { color: $mint; }
+  }
+
+  &.is-open nav a {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(.08s + var(--i) * 50ms);
+  }
+
+  &__foot {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.4rem;
+    text-align: center;
+
+    .btn { display: none; }
+
+    a:not(.btn) {
+      display: inline;
+      padding: 0;
+      border: 0;
+      color: $slate;
+      font-family: $font-body;
+      font-size: .9rem;
+      font-weight: 400;
+    }
+  }
+
+  @include up(md) { display: none; }
+}

@@ -1,0 +1,8 @@
+// 7–1 architecture: main.scss is only the manifest.
+@use 'abstracts';
+@use 'vendors';
+@use 'base';
+@use 'layout';
+@use 'components';
+@use 'pages';
+@use 'themes';
