@@ -495,5 +495,6 @@
   .who { padding-block: clamp(3rem, 12vw, 10rem); }
   .map { min-height: 22.5rem; }
   .footer { padding: 1rem 0; }
+  .footer__word { font-size: clamp(3rem, 14vw, 13rem); }
   .footer__bottom nav { width: 100%; justify-content: space-between; gap: .5rem; }
 }
